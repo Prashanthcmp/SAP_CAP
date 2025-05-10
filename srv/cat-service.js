@@ -4,28 +4,30 @@ class CatalogService extends cds.ApplicationService { init() {
 
   // Register your event handlers in here, for example:
   this.after ('each', Products, book => { 
-    
+    console.log("Product Triggered");
   });
 
   async function CallEntity(entity, data) {
-    if (entity === Students) {
+    let srv = await cds.connect.to('CatalogService');
+    if (entity === 'Products') {
       //If any custom handling required for a particular entity
     }
-    const insertQuery = INSERT.into(entity).entries(data); 
-    // This calls the service handler of respective entity. It can be used if any custom 
-    //validations need to be performed. or else custom handlers can be skipped. 
+
+    data.map(async function(oData){
+      const insertQuery = INSERT.into('Products').entries(oData);
+      const insertResult = await srv.run(insertQuery);
+    })
     
-    let srv = await cds.connect.to('CatalogService');
-    const insertResult = await srv.run(insertQuery);
-    let query = SELECT.from(entity);
-    await srv.run(query);
-    return insertResult; //returns response to excel upload entity
+    // let query = SELECT.from(entity);
+    // await srv.run(query);
+    // return insertResult; //returns response to excel upload entity
   }
 
   this.on('PUT', "ExcelUpload", async (req, next) => {
+    console.log("Excel Upload Triggered");
     if (req.data.excel) {
         var entity = req.headers.slug;
-        const stream = new PassThrough();
+        const stream = new require('stream').PassThrough();;
         var buffers = [];
         req.data.excel.pipe(stream);
         await new Promise((resolve, reject) => {
@@ -34,14 +36,15 @@ class CatalogService extends cds.ApplicationService { init() {
             });
             stream.on('end', async () => {
                 var buffer = Buffer.concat(buffers);
+                var XLSX = require("xlsx");
                 var workbook = XLSX.read(buffer, { type: "buffer", cellText: true, cellDates: true, dateNF: 'dd"."mm"."yyyy', cellNF: true, rawNumbers: false });
-                let data = []
+                let data = [];
                 const sheets = workbook.SheetNames
                 for (let i = 0; i < sheets.length; i++) {
                     const temp = XLSX.utils.sheet_to_json(
                         workbook.Sheets[workbook.SheetNames[i]], { cellText: true, cellDates: true, dateNF: 'dd"."mm"."yyyy', rawNumbers: false })
                     temp.forEach((res, index) => {
-                        if (index === 0) return;
+                        // if (index === 0) return;
                         data.push(JSON.parse(JSON.stringify(res)))
                     })
                 }

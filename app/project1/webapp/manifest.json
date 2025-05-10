@@ -129,12 +129,19 @@
                     "type": "ResponsiveTable"
                   },
                   "actions": {
-                    "ListReportExt": {
+                    "UploadExcel": {
                       "press": "project1.ext.controller.ListReportExt.onUploadExcel",
                       "visible": true,
                       "enabled": true,
                       "requiresSelection": false,
                       "text": "Upload Excel"
+                    },
+                    "DownloadTemplate": {
+                      "press": "project1.ext.controller.ListReportExt.onDownloadTemplate",
+                      "visible": true,
+                      "enabled": true,
+                      "requiresSelection": false,
+                      "text": "Download Template"
                     }
                   }
                 }

@@ -1,6 +1,75 @@
 <mvc:View controllerName="productview.controller.ProductsView"
     xmlns:mvc="sap.ui.core.mvc"
+    xmlns:l="sap.ui.layout"
     xmlns="sap.m">
     <Page id="page" title="{i18n>title}">
+        <content>
+            <Panel id="idPanel1" expandAnimation="true" backgroundDesign="Transparent" accessibleRole="Region">
+                	<l:VerticalLayout id="containerLayout" width="100%">
+		<l:BlockLayout id="BlockLayout" background="{/selectedBackground}">
+			<l:BlockLayoutRow rowColorSet="ColorSet1" >
+				<l:BlockLayoutCell
+					id="Accent1"
+                    backgroundColorSet="ColorSet6" backgroundColorShade="ShadeB"
+					title="">
+                    <l:Grid position="Left" defaultSpan="L6 M12 S12" defaultIndent="XL0 L0 M0 S0">
+                        <l:VerticalLayout >
+                            <Title level="Auto" titleStyle="H2">
+						        <Link text="Tele Vision" href="https://sap.com" target="_blank" />
+					        </Title>
+                            <Text text="You can purchase only two products from this list"/>
+                        </l:VerticalLayout>
+                    </l:Grid>                    
+				</l:BlockLayoutCell>
+
+				<l:BlockLayoutCell
+                    backgroundColorSet="ColorSet1" backgroundColorShade="ShadeA"
+					title="">
+                    <l:Grid position="Left" defaultSpan="L6 M12 S12" defaultIndent="XL0 L0 M0 S0">
+                        <l:VerticalLayout >
+                            <Title level="Auto" titleStyle="H2">
+						        <Link text="Speakers" href="https://sap.com" target="_blank" />
+					        </Title>
+                            <Text text="You can purchase only one products from this list"/>
+                        </l:VerticalLayout>
+                    </l:Grid>                    
+				</l:BlockLayoutCell>
+				
+			</l:BlockLayoutRow>
+			<l:BlockLayoutRow rowColorSet="ColorSet1" >
+				<l:BlockLayoutCell
+                    backgroundColorSet="ColorSet1" backgroundColorShade="ShadeA"
+					title="">
+                    <l:Grid position="Left" defaultSpan="L6 M12 S12" defaultIndent="XL0 L0 M0 S0">
+                        <l:VerticalLayout >
+                            <Title level="Auto" titleStyle="H2">
+						        <Link text="Play Station" href="https://sap.com" target="_blank" />
+					        </Title>
+                            <!-- <Image width="50%"  src="./Image/Television.jpg"/> -->
+                            <Text text="You can purchase only one products from this list"/>
+                        </l:VerticalLayout>
+                    </l:Grid>
+				</l:BlockLayoutCell>
+
+				<l:BlockLayoutCell
+                    backgroundColorSet="ColorSet6" backgroundColorShade="ShadeB"
+					title="">
+                    <l:Grid position="Left" defaultSpan="L6 M12 S12" defaultIndent="XL0 L0 M0 S0">
+                        <l:VerticalLayout >
+                            <Title level="Auto" titleStyle="H2">
+						        <Link text="Party Box" href="https://sap.com" target="_blank" />
+					        </Title>
+                            <!-- <Image width="50%"  src="./Image/Television.jpg"/> -->
+                            <Text text="You can purchase only one products from this list"/>
+                        </l:VerticalLayout>
+                    </l:Grid>
+				</l:BlockLayoutCell>
+				
+			</l:BlockLayoutRow>
+			
+		</l:BlockLayout>
+	</l:VerticalLayout>
+            </Panel>
+        </content>
     </Page>
 </mvc:View>

@@ -2,25 +2,39 @@ using CatalogService as service from '../../srv/cat-service';
 
 annotate service.Products with {
     @title: '{i18n>name}'
-    name;
+    ProductName;
     @title : '{i18n>ProductCategory}'
     ProductCategory;
     @title : '{i18n>mrp}'
-    mrp;
+    Mrp;
     @title : '{i18n>staffPrice}'
-    staffPrice;
+    StaffPrice;
     @title : '{i18n>modelNumber}'
-    modelNumber;
+    ModelNumber;
+
 }
 
 annotate service.Products with @(
+     UI.HeaderInfo : {
+    TypeName : 'Product',
+    TypeNamePlural : 'Products',
+    Title : {
+        $Type : 'UI.DataField',
+        Value : ProductId
+    },
+    Description : {
+        $Type : 'UI.DataField',
+        Value : ProductName
+    }
+},
+
     UI.FieldGroup #GeneratedGroup : {
         $Type : 'UI.FieldGroupType',
         Data : [
            
             {
                 $Type : 'UI.DataField',
-                Value : name,
+                Value : ProductName,
             },
             {
                 $Type : 'UI.DataField',
@@ -28,27 +42,27 @@ annotate service.Products with @(
             },
             {
                 $Type : 'UI.DataField',
-                Value : modelNumber,
+                Value : ModelNumber,
             },
             {
                 $Type : 'UI.DataField',
-                Value : mrp,
+                Value : Mrp,
             },
             {
                 $Type : 'UI.DataField',
-                Value : staffPrice,
+                Value : StaffPrice,
             },
             {
                 $Type : 'UI.DataField',
-                Value : avilability,
+                Value : Avilability,
             },
             {
                 $Type : 'UI.DataField',
-                Value : deliverHome,
+                Value : DeliverHome,
             },
             {
                 $Type : 'UI.DataField',
-                Value : purchaseCategory,
+                Value : ProductCategory,
             },
         ],
     },
@@ -64,7 +78,7 @@ annotate service.Products with @(
         
         {
             $Type : 'UI.DataField',
-            Value : name,
+            Value : ProductName,
         },
         {
             $Type : 'UI.DataField',
@@ -72,11 +86,11 @@ annotate service.Products with @(
         },
         {
             $Type : 'UI.DataField',
-            Value : modelNumber,
+            Value : ModelNumber,
         },
         {
             $Type : 'UI.DataField',
-            Value : mrp,
+            Value : Mrp,
         },
     ],
 );

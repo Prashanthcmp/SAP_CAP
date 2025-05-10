@@ -10,13 +10,15 @@ entity User : cuid, managed  {
   address: String;
 }
  entity Products : cuid, managed  {
-  name: String;
+  PurchaseCategory: String;
   ProductCategory: String;
-  modelNumber: String;
-  mrp:Integer;
-  staffPrice: Integer;
-  avilability: String;
-  deliverHome: String;
-  purchaseCategory: String;
+  ModelNumber: String;
+  ProductId: String;
+  ProductName: String;
+  Mrp:Integer;
+  StaffPrice: Integer;
+  Color:String;
+  Avilability: String;
+  DeliverHome: String;
 }
 
