@@ -75,6 +75,10 @@ modules:
       - productview.zip
       name: productview
       target-path: resources/
+    - artifacts:
+      - orderproduct.zip
+      name: orderproduct
+      target-path: resources/
 - name: project1
   type: html5
   path: app/project1
@@ -88,6 +92,16 @@ modules:
 - name: productview
   type: html5
   path: app/productview
+  build-parameters:
+    build-result: dist
+    builder: custom
+    commands:
+    - npm install
+    - npm run build:cf
+    supported-platforms: []
+- name: orderproduct
+  type: html5
+  path: app/orderproduct
   build-parameters:
     build-result: dist
     builder: custom

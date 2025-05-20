@@ -61,7 +61,10 @@
             "minUI5Version": "1.135.0",
             "libs": {
                 "sap.m": {},
-                "sap.ui.core": {}
+                "sap.ui.core": {},
+                "sap.fe.macros": {},
+                "sap.fe.templates": {},
+                "sap.fe.core": {}
             }
         },
         "contentDensities": {
@@ -111,12 +114,21 @@
                     "target": [
                         "TargetProductsView"
                     ]
+                },
+                {
+                    "pattern": "television/{Id}",
+                    "name": "TeleVision",
+                    "target": "TeleVision"
                 }
             ],
             "targets": {
                 "TargetProductsView": {
                     "id": "ProductsView",
                     "name": "ProductsView"
+                },
+                "TeleVision": {
+                    "id": "TeleVisionId",
+                    "name": "TeleVision"
                 }
             }
         },

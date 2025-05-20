@@ -1,0 +1,90 @@
+<mvc:View
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:macros="sap.fe.macros"
+    xmlns:core="sap.ui.core"
+    controllerName="productview.controller.TeleVision"
+>
+    <Page
+        enableScrolling="true"
+        showFooter="true"
+		showHeader="false"
+    >
+        <MessageStrip
+            width="100%"
+            text="You can purchase only 2 products from this list."
+            showIcon="true"
+            showCloseButton="false"
+            class="sapUiSmallMargin"
+        />
+        <Table
+            id="idProductsTable"
+            multiSelectMode="SelectAll"
+            mode="MultiSelect"
+            inset="false"
+            items="{
+			path: '/Products',
+			sorter: {
+				path: 'ProductName'
+			}
+		}"
+        >
+
+            <columns>
+                <Column width="12em">
+                    <Text text="Product Name" />
+                </Column>
+
+                <Column width="12em">
+                    <Text text="Purchase Category" />
+                </Column>
+
+                <Column>
+                    <Text text="Product Category" />
+                </Column>
+
+                <Column>
+                    <Text text="M.R.P" />
+                </Column>
+
+                <Column>
+                    <Text text="Staff Price" />
+                </Column>
+
+                <Column>
+                    <Text text="Model Number" />
+                </Column>
+            </columns>
+            <items>
+                <ColumnListItem vAlign="Middle">
+                    <cells>
+                        <ObjectIdentifier
+                            title="{ProductName}"
+                            text="{ProductId}"
+                        />
+                        <Text text="{PurchaseCategory}" />
+                        <Text text="{ProductCategory/name}" />
+                        <Text text="{Mrp}" />
+                        <Text text="{StaffPrice}" />
+                        <Text text="{ModelNumber}" />
+                    </cells>
+                </ColumnListItem>
+            </items>
+        </Table>
+        <footer>
+            <Toolbar>
+                <ToolbarSpacer />
+                <Button
+                    text="Add to Cart"
+                    icon="sap-icon://cart-4"
+                    type="Emphasized"
+                />
+                <Button
+                    text="Proceed to Buy"
+                    type="Success"
+                    press="onPressBuy"
+                />
+            </Toolbar>
+        </footer>
+    </Page>
+</mvc:View>

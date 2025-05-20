@@ -6,9 +6,11 @@
   "license": "UNLICENSED",
   "private": true,
   "dependencies": {
+    "@cap-js-community/odata-v2-adapter": "^1.14.4",
     "@cap-js/hana": "^1",
     "@sap/cds": "^8",
     "@sap/cds-mtxs": "^2.7.2",
+    "@sap/cds-odata-v2-adapter-proxy": "^1.9.21",
     "@sap/xssec": "^4.7.0",
     "express": "^4",
     "xlsx": "^0.18.5"
@@ -26,9 +28,11 @@
     "undeploy": "cf undeploy ZCAP --delete-services --delete-service-keys --delete-service-brokers",
     "build": "rimraf resources mta_archives && mbt build --mtar archive",
     "deploy": "cf deploy mta_archives/archive.mtar --retries 1",
-    "watch-productview": "cds watch --open productview/webapp/index.html?sap-ui-xx-viewCache=false"
+    "watch-productview": "cds watch --open productview/webapp/index.html?sap-ui-xx-viewCache=false",
+    "watch-orderproduct": "cds watch --open orderproduct/webapp/index.html?sap-ui-xx-viewCache=false"
   },
   "sapux": [
-    "app/project1"
+    "app/project1",
+    "app/orderproduct"
   ]
 }

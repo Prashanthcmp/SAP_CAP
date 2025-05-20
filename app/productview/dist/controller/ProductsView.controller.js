@@ -1,2 +1,2 @@
-sap.ui.define(["sap/ui/core/mvc/Controller"],e=>{"use strict";return e.extend("productview.controller.ProductsView",{onInit(){}})});
+sap.ui.define(["sap/ui/core/mvc/Controller","sap/ui/core/UIComponent"],(e,t)=>{"use strict";return e.extend("productview.controller.ProductsView",{onInit(){},onLinkPress:function(e){debugger;let t=e.getSource().getBindingContext().getProperty("ID");this.getRouter().navTo("TeleVision",{Id:window.encodeURIComponent(t)})},getRouter:function(){return t.getRouterFor(this)}})});
 //# sourceMappingURL=ProductsView.controller.js.map

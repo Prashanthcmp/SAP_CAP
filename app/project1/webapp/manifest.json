@@ -28,9 +28,10 @@
     "crossNavigation": {
       "inbounds": {
         "IncidentDisplay": {
-          "semanticObject": "Incident",
-          "action": "display",
-          "title": "Display Incident",
+          "semanticObject": "Product",
+          "action": "manage",
+          "title": "Manage Products",
+          "icon": "sap-icon://product",
           "signature": {
             "parameters": {},
             "additionalParameters": "allowed"
