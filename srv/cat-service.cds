@@ -19,6 +19,8 @@ service CatalogService {
 }
 
 annotate CatalogService.Products with @odata.draft.enabled;
-annotate CatalogService.ProductCategory with @odata.draft.enabled;
+annotate CatalogService.ProductCategory with  @odata.draft.bypass @odata.draft.enabled;
 annotate CatalogService.Orders with @odata.draft.enabled;
+
+annotate CatalogService.Orders with @Capabilities.InsertRestrictions.Insertable: true;
 // annotate CatalogService.OrderItems with @odata.draft.enabled;

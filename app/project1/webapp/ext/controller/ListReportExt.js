@@ -65,6 +65,32 @@ sap.ui.define([
         return aCols;
     }
 
+    function _createProductCategoryController(oExtensionAPI) {
+        var oUploadDialog;
+
+        function closeDialog() {
+            oUploadDialog && oUploadDialog.close()
+        }
+
+        return {
+
+            onBeforeOpen: function (oEvent) {
+                oUploadDialog = oEvent.getSource();
+                oExtensionAPI.addDependent(oUploadDialog);
+            },
+
+            onAfterClose: function (oEvent) {
+                oExtensionAPI.removeDependent(oUploadDialog);
+                oUploadDialog.destroy();
+                oUploadDialog = undefined;
+            },
+            
+            onCancel: function (oEvent) {
+                closeDialog();
+            },
+        }
+    }
+
     function _createUploadController(oExtensionAPI, Entity) {
         var oUploadDialog;
 
@@ -212,6 +238,16 @@ sap.ui.define([
 				oSheet.destroy();
 			});
 		},
+
+        onProductCategory: function() {
+            this.loadFragment({
+                id: "idProductCategory",
+                name: "project1.ext.fragment.ProductCategory",
+                controller: _createProductCategoryController(this)
+            }).then(function (oDialog) {
+                oDialog.open();
+            });
+        }
 
         
     };

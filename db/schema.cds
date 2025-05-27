@@ -26,6 +26,7 @@ entity Products : cuid, managed {
   Avilability         : String;
   DeliverHome         : String;
   DeliveryCriticality : Integer;
+  Quantity            : Integer;
   Criticality         : Integer;
 }
 
@@ -43,22 +44,21 @@ entity Customers : cuid, managed {
 }
 
 entity Orders : cuid, managed {
-  name             : String;
-  order_id         : Integer;
-  customer         : Association to Customers;
+  customer         : String;
   order_date       : Date;
   status           : String;
   total_amount     : Integer;
-  shipping_address : String;
+  shipping_address : String(500);
   payment_method   : String;
   item             : Composition of many OrderItems
                        on item.order = $self;
 }
 
 entity OrderItems : cuid, managed {
-  order      : Association to Orders;
-  product    : Association to Products;
-  quantity   : Integer;
-  unitPrice  : Decimal(15, 2);
-  totalPrice : Decimal(15, 2);
+  order           : Association to Orders;
+  product         : Association to Products;
+  quantity        : Integer;
+  ProductCategory : Integer;
+  unitPrice       : Decimal(15, 2);
+  totalPrice      : Decimal(15, 2);
 }

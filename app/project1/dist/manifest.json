@@ -130,6 +130,13 @@
                                         "type": "ResponsiveTable"
                                     },
                                     "actions": {
+                                        "ProductCategory": {
+                                            "press": "project1.ext.controller.ListReportExt.onProductCategory",
+                                            "visible": true,
+                                            "enabled": true,
+                                            "requiresSelection": false,
+                                            "text": "Product Category"
+                                        },
                                         "UploadExcel": {
                                             "press": "project1.ext.controller.ListReportExt.onUploadExcel",
                                             "visible": true,

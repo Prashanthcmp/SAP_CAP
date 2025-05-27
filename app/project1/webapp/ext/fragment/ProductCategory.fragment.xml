@@ -1,0 +1,60 @@
+<core:FragmentDefinition
+    xmlns:core="sap.ui.core"
+    xmlns:u="sap.ui.unified"
+    xmlns:l="sap.ui.layout"
+    xmlns:f="sap.ui.layout.form"
+    xmlns="sap.m"
+>
+    <Dialog
+        id="idProductCat"
+        title="Product Category"
+        class="sapUiResponsiveContentPadding"
+        beforeOpen=".onBeforeOpen"
+        afterClose=".onAfterClose"
+    >
+        <content>
+           <Table
+            id="idProductsTable"
+            multiSelectMode="SelectAll"
+            mode="MultiSelect"
+            inset="false"
+            items="{
+			path: '/ProductCategory',
+			sorter: {
+				path: 'ID'
+			}
+		}"
+        >
+
+            <columns>
+                <Column width="12em">
+                    <Text text="Name" />
+                </Column>
+
+                <Column width="12em">
+                    <Text text="Description" />
+                </Column>
+
+               
+            </columns>
+            <items>
+                <ColumnListItem vAlign="Middle">
+                    <cells>
+                        <ObjectIdentifier
+                            title="{name}"
+                        />
+                        <Input value="{Description}" />
+                    </cells>
+                </ColumnListItem>
+            </items>
+        </Table>
+        </content>
+        <endButton>
+            <Button
+                id="idProductcancel"
+                text="Close"
+                press=".onCancel"
+            />
+        </endButton>
+    </Dialog>
+</core:FragmentDefinition>

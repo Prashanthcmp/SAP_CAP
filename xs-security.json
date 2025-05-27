@@ -6,6 +6,11 @@
     {
       "name": "uaa.user",
       "description": "UAA"
+    },
+    {
+      "name": "$XSAPPNAME.View",
+      "description": "View access",
+      "grant-as-authority-to-apps": ["*"]
     }
   ],
   "role-templates": [
@@ -15,6 +20,12 @@
       "scope-references": [
         "uaa.user"
       ]
+    }
+  ],
+  "attributes": [
+    {
+      "name": "email",
+      "description": "User email"
     }
   ]
 }
