@@ -6,6 +6,10 @@
     {
       "name": "$XSAPPNAME.Admin",
       "description": "Adminnistrator"
+    },
+    {
+      "name": "$XSAPPNAME.AvilabilityRole",
+      "description": "Adminnistrator"
     }
   ],
   "role-templates": [
@@ -16,9 +20,21 @@
       "scope-references": [
         "$XSAPPNAME.Admin"
       ]
+    },
+    {
+      "name": "AvilabilityRole",
+      "description": "AvilabilityRole Description",
+      "attribute-references": ["Avilability"],
+      "scope-references": [
+        "$XSAPPNAME.AvilabilityRole"
+      ]
     }
   ],
   "attributes": [
-   
+   {
+    "name":"Avilability",
+    "description":"Avilability Description",
+    "valueType":"string"
+   }
   ]
 }

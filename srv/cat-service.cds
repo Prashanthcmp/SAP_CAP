@@ -5,6 +5,10 @@ service CatalogService {
     entity Products  @(restrict:[{
         grant:['*'],
         to: 'Admin'
+    },{
+        grant:['READ'],
+        to: 'AvilabilityRole',
+        where:'$user.Avilability = Avilability'
     }])      as projection on my.Products;
     entity AppUser         as projection on my.User;
     entity ProductCategory as projection on my.ProductCategory;
