@@ -4,27 +4,11 @@
   "description": "Security profile of called application",
   "scopes": [
     {
-      "name": "$XSAPPNAME.Viewer",
-      "description": "Viewer"
-    },
-    {
       "name": "$XSAPPNAME.Admin",
       "description": "Adminnistrator"
-    },
-    {
-      "name": "$XSAPPNAME.ViewerWithAvailability",
-      "description": "ViewerWithAvailability"
     }
   ],
   "role-templates": [
-    {
-      "name": "Viewer",
-      "description": "Viewer",
-      "scope-references": [
-        "$XSAPPNAME.Viewer"
-      ],
-      "attribute-references": []
-    },
     {
       "name": "Admin",
       "description": "Adminnistrator",
@@ -32,12 +16,6 @@
       "scope-references": [
         "$XSAPPNAME.Admin"
       ]
-    },
-    {
-      "name": "ViewerWithAvailability",
-      "description": "Viewer role with attribute-based access",
-      "attribute-references": [],
-      "scope-references": ["$XSAPPNAME.ViewerWithAvailability"]
     }
   ],
   "attributes": [

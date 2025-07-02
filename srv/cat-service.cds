@@ -3,9 +3,6 @@ using my.productPurchase as my from '../db/schema';
 
 service CatalogService {
     entity Products  @(restrict:[{
-        grant: ['READ'],
-        to: 'ViewerWithAvailability'
-    },{
         grant:['*'],
         to: 'Admin'
     }])      as projection on my.Products;
