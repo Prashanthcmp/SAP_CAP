@@ -11,7 +11,7 @@
     "@sap/cds": "^8",
     "@sap/cds-mtxs": "^2.7.2",
     "@sap/cds-odata-v2-adapter-proxy": "^1.9.21",
-    "@sap/xssec": "^4.7.0",
+    "@sap/xssec": "^4",
     "express": "^4",
     "xlsx": "^0.18.5"
   },
@@ -34,5 +34,43 @@
   "sapux": [
     "app/project1",
     "app/orderproduct"
-  ]
+  ],
+  "cds": {
+    "requires": {
+      "uaa": {
+        "kind": "xsuaa"
+      },
+      "auth": {
+        "[production]": {
+          "strategy": "JWT"
+        },
+        "[development]": {
+          "strategy": "mock",
+          "users": {
+            "joe": {
+              "roles": [
+                "Admin",
+                "Viewer"
+              ],
+              "userAttributes": {
+                "Avilability": [
+                  "$UNRESTRICTED"
+                ]
+              }
+            },
+            "july": {
+              "roles": [
+                "Viewer"
+              ],
+              "userAttributes": {
+                "Avilability": [
+                  "Yes"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }

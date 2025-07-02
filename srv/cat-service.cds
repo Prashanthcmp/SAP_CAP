@@ -2,7 +2,13 @@ using my.productPurchase as my from '../db/schema';
 
 
 service CatalogService {
-    entity Products        as projection on my.Products;
+    entity Products  @(restrict:[{
+        grant: ['READ'],
+        to: 'ViewerWithAvailability'
+    },{
+        grant:['*'],
+        to: 'Admin'
+    }])      as projection on my.Products;
     entity AppUser         as projection on my.User;
     entity ProductCategory as projection on my.ProductCategory;
     entity Orders          as projection on my.Orders;

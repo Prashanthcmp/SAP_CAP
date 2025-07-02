@@ -196,6 +196,11 @@ class CatalogService extends cds.ApplicationService {
       return isValid;
     }
 
+    this.on('READ', Products, async req => {
+      console.log("Product READ Triggered");
+      console.log(req.user);
+    });
+
 
     // Register your event handlers in here, for example:
     this.after('each', Products, product => {

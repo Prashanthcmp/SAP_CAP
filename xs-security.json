@@ -4,28 +4,43 @@
   "description": "Security profile of called application",
   "scopes": [
     {
-      "name": "uaa.user",
-      "description": "UAA"
+      "name": "$XSAPPNAME.Viewer",
+      "description": "Viewer"
     },
     {
-      "name": "$XSAPPNAME.View",
-      "description": "View access",
-      "grant-as-authority-to-apps": ["*"]
+      "name": "$XSAPPNAME.Admin",
+      "description": "Adminnistrator"
+    },
+    {
+      "name": "$XSAPPNAME.ViewerWithAvailability",
+      "description": "ViewerWithAvailability"
     }
   ],
   "role-templates": [
     {
-      "name": "Token_Exchange",
-      "description": "UAA",
+      "name": "Viewer",
+      "description": "Viewer",
       "scope-references": [
-        "uaa.user"
+        "$XSAPPNAME.Viewer"
+      ],
+      "attribute-references": []
+    },
+    {
+      "name": "Admin",
+      "description": "Adminnistrator",
+      "attribute-references": [],
+      "scope-references": [
+        "$XSAPPNAME.Admin"
       ]
+    },
+    {
+      "name": "ViewerWithAvailability",
+      "description": "Viewer role with attribute-based access",
+      "attribute-references": [],
+      "scope-references": ["$XSAPPNAME.ViewerWithAvailability"]
     }
   ],
   "attributes": [
-    {
-      "name": "email",
-      "description": "User email"
-    }
+   
   ]
 }
