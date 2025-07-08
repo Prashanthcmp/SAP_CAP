@@ -10,6 +10,10 @@
     {
       "name": "$XSAPPNAME.AvilabilityRole",
       "description": "Adminnistrator"
+    },
+    {
+      "name": "$XSAPPNAME.OrderRead",
+      "description": "Order Read Role"
     }
   ],
   "role-templates": [
@@ -27,6 +31,14 @@
       "attribute-references": ["Avilability"],
       "scope-references": [
         "$XSAPPNAME.AvilabilityRole"
+      ]
+    },
+    {
+      "name": "OrderRead",
+      "description": "OrderRead Description",
+      "attribute-references": [],
+      "scope-references": [
+        "$XSAPPNAME.OrderRead"
       ]
     }
   ],

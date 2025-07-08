@@ -12,7 +12,10 @@ service CatalogService {
     }])      as projection on my.Products;
     entity AppUser         as projection on my.User;
     entity ProductCategory as projection on my.ProductCategory;
-    entity Orders          as projection on my.Orders;
+    entity Orders   @(restrict:[{
+        grant:['READ'],
+        to: 'OrderRead'
+    }])        as projection on my.Orders;
     entity OrderItems      as projection on my.OrderItems;
     entity Customers       as projection on my.Customers;
 
